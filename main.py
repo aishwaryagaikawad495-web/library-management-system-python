@@ -1,32 +1,73 @@
 from models.book import Book
-from models.member import Member
 from models.library import Library
 
 
-def main():
+def display_menu():
+    print("\n===================================")
+    print("      Library Management System")
     print("===================================")
-    print("  Welcome to Library Management")
-    print("===================================")
+    print("1. Add Book")
+    print("2. View Books")
+    print("3. Search Book")
+    print("4. Remove Book")
+    print("5. Exit")
 
-    # Create Library Object
+
+def main():
+
     library = Library()
 
-    # Create Book Objects
-    book1 = Book(101, "Python Programming", "Guido van Rossum")
-    book2 = Book(102, "Clean Code", "Robert C. Martin")
+    while True:
 
-    # Create Member Object
-    member = Member(1, "Aishwarya")
+        display_menu()
 
-    print("\nMember Details")
-    member.display_member()
+        choice = input("\nEnter your choice: ")
 
-    # Add books to library
-    library.add_book(book1)
-    library.add_book(book2)
+        if choice == "1":
 
-    print("\nBooks in Library")
-    library.display_books()
+            print("\n------ Add New Book ------")
+
+            try:
+                book_id = int(input("Enter Book ID: "))
+            except ValueError:
+                print("Book ID must be a number.")
+                continue
+
+            title = input("Enter Book Title: ").strip()
+            author = input("Enter Author Name: ").strip()
+
+            if title == "" or author == "":
+                print("Title and Author cannot be empty.")
+                continue
+
+            book = Book(book_id, title, author)
+            library.add_book(book)
+
+        elif choice == "2":
+
+            library.display_books()
+
+        elif choice == "3":
+
+            title = input("Enter Book Title to Search: ")
+            library.search_book(title)
+
+        elif choice == "4":
+
+            try:
+                book_id = int(input("Enter Book ID to Remove: "))
+                library.remove_book(book_id)
+            except ValueError:
+                print("Invalid Book ID.")
+
+        elif choice == "5":
+
+            print("\nThank you for using Library Management System.")
+            break
+
+        else:
+
+            print("\nInvalid choice! Please try again.")
 
 
 if __name__ == "__main__":

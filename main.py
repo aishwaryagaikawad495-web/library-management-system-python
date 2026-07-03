@@ -12,8 +12,9 @@ def display_menu():
     print("4. Search Book by ID")
     print("5. Search by Author")
     print("6. Remove Book")
-    print("7. Total Books")
-    print("8. Exit")
+    print("7. Edit Book")
+    print("8. Total Books")
+    print("9. Exit")
 
 
 def main():
@@ -80,12 +81,19 @@ def main():
 
         elif choice == "7":
 
-                library.total_books()
+            try:
+                book_id = int(input("Enter Book ID to Edit: "))
+                library.edit_book(book_id)
+
+            except ValueError:
+                print("Invalid Book ID.") 
 
         elif choice == "8":
+            library.total_books()
 
-                print("\nThank you for using Library Management System.")
-                break
+        elif choice == "9":
+            print("\nThank you for using Library Management System.")
+            break
 
         else:
 

@@ -15,15 +15,27 @@ class Library:
 
     # Display all books
     def display_books(self):
+
         if not self.books:
-            print("\nNo books available in the library.")
+            print("\nNo books available.")
             return
 
-        print("\n========== Library Books ==========")
+        print("\n{:<10} {:<30} {:<25} {:<12}".format(
+            "Book ID", "Title", "Author", "Status"))
+        print("-" * 80)
 
         for book in self.books:
-            book.display_book()
 
+            status = "Available" if book.available else "Issued"
+
+            print("{:<10} {:<30} {:<25} {:<12}".format(
+                book.book_id,
+                book.title,
+                book.author,
+                status
+            ))
+
+        
     # Search a book by title
     def search_book(self, title):
         for book in self.books:
@@ -68,6 +80,30 @@ class Library:
                 return
 
         print("\nBook ID not found.")
+
+    #Edit Book
+    def edit_book(self, book_id):
+
+        for book in self.books:
+
+            if book.book_id == book_id:
+
+                print("\nLeave blank if you don't want to change the value.")
+
+                new_title = input("Enter New Title: ").strip()
+                new_author = input("Enter New Author: ").strip()
+
+                if new_title:
+                    book.title = new_title
+
+                if new_author:
+                    book.author = new_author
+
+                print("\nBook updated successfully!")
+                return
+
+        print("\nBook ID not found.")
+
      # Count Books
     def total_books(self):
 

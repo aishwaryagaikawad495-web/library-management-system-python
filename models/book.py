@@ -6,11 +6,9 @@ class Book:
         self.available = True
 
     def display_book(self):
-        status = "Available" if self.available else "Issued"
-
-        print("----------------------------")
+        print("-" * 40)
         print(f"Book ID : {self.book_id}")
         print(f"Title   : {self.title}")
         print(f"Author  : {self.author}")
-        print(f"Status  : {status}")
-        print("----------------------------")
+        print(f"Status  : {'Available' if self.available else 'Issued'}")
+        print("-" * 40)

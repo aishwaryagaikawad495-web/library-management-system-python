@@ -20,9 +20,14 @@ class Library:
             print("\nNo books available.")
             return
 
+        print("\n================ Library Books ================")
+
         print("\n{:<10} {:<30} {:<25} {:<12}".format(
             "Book ID", "Title", "Author", "Status"))
         print("-" * 80)
+
+        for book in self.books:
+            book.display_row()
 
         for book in self.books:
 
@@ -38,21 +43,40 @@ class Library:
         
     # Search a book by title
     def search_book(self, title):
-        for book in self.books:
-            if book.title.lower() == title.lower():
-                print("\nBook Found!")
-                book.display_book()
-                return
+        found=False
+        print("\nSearch results")
 
-        print("\nBook not found.")
+        print("{:<10} {:<30} {:<25} {:<12}".format(
+        "Book ID", "Title", "Author", "Status"))
+
+        print("-" * 80)
+
+        for book in self.books:
+
+            if title.lower() in book.title.lower():
+
+                book.display_row()
+                found = True
+
+        if not found:
+            print("Book not found.")
 
     # Search by Book ID
     def search_book_by_id(self, book_id):
 
         for book in self.books:
+
             if book.book_id == book_id:
-                print("\nBook Found")
-                book.display_book()
+
+                print("\nBook Found\n")
+
+                print("{:<10} {:<30} {:<25} {:<12}".format(
+                    "Book ID", "Title", "Author", "Status"))
+
+                print("-" * 80)
+
+                book.display_row()
+
                 return
 
         print("\nBook ID not found.")
@@ -62,21 +86,29 @@ class Library:
 
         found = False
 
+        print("\nBooks by Author\n")
+
+        print("{:<10} {:<30} {:<25} {:<12}".format(
+            "Book ID", "Title", "Author", "Status"))
+
+        print("-" * 80)
+
         for book in self.books:
 
-            if book.author.lower() == author.lower():
-                book.display_book()
+            if author.lower() in book.author.lower():
+
+                book.display_row()
                 found = True
 
         if not found:
-            print("\nAuthor not found.")
+            print("Author not found.")
 
     # Remove a book by Book ID
     def remove_book(self, book_id):
         for book in self.books:
             if book.book_id == book_id:
                 self.books.remove(book)
-                print("\nBook removed successfully!")
+                print(f"\n'{book.title}' removed successfully!")
                 return
 
         print("\nBook ID not found.")
@@ -99,7 +131,7 @@ class Library:
                 if new_author:
                     book.author = new_author
 
-                print("\nBook updated successfully!")
+                print(f"\n'{book.title}' updated successfully!")
                 return
 
         print("\nBook ID not found.")

@@ -2,6 +2,11 @@ class Library:
     def __init__(self):
         self.books = []
 
+    def display_table_header(self):
+        print("{:<10} {:<30} {:<25} {:<12}".format(
+            "Book ID", "Title", "Author", "Status"))
+        print("-" * 80)
+
     # Add a new book
     def add_book(self, book):
 
@@ -22,34 +27,22 @@ class Library:
 
         print("\n================ Library Books ================")
 
-        print("\n{:<10} {:<30} {:<25} {:<12}".format(
-            "Book ID", "Title", "Author", "Status"))
-        print("-" * 80)
+        self.display_table_header()
 
         for book in self.books:
             book.display_row()
 
-        for book in self.books:
-
-            status = "Available" if book.available else "Issued"
-
-            print("{:<10} {:<30} {:<25} {:<12}".format(
-                book.book_id,
-                book.title,
-                book.author,
-                status
-            ))
-
         
     # Search a book by title
     def search_book(self, title):
-        found=False
+        if not self.books:
+            print("\nNo books available.")
+            return
+
+        found = False
         print("\nSearch results")
 
-        print("{:<10} {:<30} {:<25} {:<12}".format(
-        "Book ID", "Title", "Author", "Status"))
-
-        print("-" * 80)
+        self.display_table_header()
 
         for book in self.books:
 
@@ -63,6 +56,9 @@ class Library:
 
     # Search by Book ID
     def search_book_by_id(self, book_id):
+        if not self.books:
+            print("\nNo books available.")
+            return
 
         for book in self.books:
 
@@ -70,10 +66,7 @@ class Library:
 
                 print("\nBook Found\n")
 
-                print("{:<10} {:<30} {:<25} {:<12}".format(
-                    "Book ID", "Title", "Author", "Status"))
-
-                print("-" * 80)
+                self.display_table_header()
 
                 book.display_row()
 
@@ -83,15 +76,15 @@ class Library:
 
     # Search by Author
     def search_by_author(self, author):
+        if not self.books:
+            print("\nNo books available.")
+            return
 
         found = False
 
         print("\nBooks by Author\n")
 
-        print("{:<10} {:<30} {:<25} {:<12}".format(
-            "Book ID", "Title", "Author", "Status"))
-
-        print("-" * 80)
+        self.display_table_header()
 
         for book in self.books:
 
@@ -105,6 +98,10 @@ class Library:
 
     # Remove a book by Book ID
     def remove_book(self, book_id):
+        if not self.books:
+            print("\nNo books available.")
+            return
+
         for book in self.books:
             if book.book_id == book_id:
                 self.books.remove(book)
@@ -115,6 +112,9 @@ class Library:
 
     #Edit Book
     def edit_book(self, book_id):
+        if not self.books:
+            print("\nNo books available.")
+            return
 
         for book in self.books:
 

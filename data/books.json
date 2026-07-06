@@ -1,0 +1,14 @@
+[
+    {
+        "book_id": 1,
+        "title": "Design patterns",
+        "author": "Gammaa",
+        "available": true
+    },
+    {
+        "book_id": 3,
+        "title": "Effective-java",
+        "author": "Joshua Bloch",
+        "available": true
+    }
+]

@@ -1,6 +1,21 @@
+
+import json
+from models.book import Book
+
 class Library:
     def __init__(self):
         self.books = []
+        self.load_books()
+
+    def save_books(self):
+
+        books_data = []
+
+        for book in self.books:
+            books_data.append(book.to_dict())
+
+        with open("data/books.json", "w") as file:
+            json.dump(books_data, file, indent=4)
 
     def display_table_header(self):
         print("{:<10} {:<30} {:<25} {:<12}".format(
@@ -16,6 +31,7 @@ class Library:
                 return
 
         self.books.append(book)
+        self.save_books()
         print(f"\n'{book.title}' added successfully!")
 
     # Display all books
@@ -105,6 +121,7 @@ class Library:
         for book in self.books:
             if book.book_id == book_id:
                 self.books.remove(book)
+                self.save_books()
                 print(f"\n'{book.title}' removed successfully!")
                 return
 
@@ -130,7 +147,7 @@ class Library:
 
                 if new_author:
                     book.author = new_author
-
+                self.save_books()
                 print(f"\n'{book.title}' updated successfully!")
                 return
 
@@ -140,3 +157,19 @@ class Library:
     def total_books(self):
 
         print(f"\nTotal Books : {len(self.books)}")
+
+
+    def load_books(self):
+
+        try:
+            with open("data/books.json", "r") as file:
+                books_data = json.load(file)
+
+            self.books = []
+
+            for data in books_data:
+                book = Book.from_dict(data)
+                self.books.append(book)
+
+        except (FileNotFoundError, json.JSONDecodeError):
+            self.books = []

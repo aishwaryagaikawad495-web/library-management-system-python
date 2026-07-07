@@ -1,6 +1,9 @@
 from models.book import Book
 from models.library import Library
 
+from models.member import Member
+from models.member_manager import MemberManager
+
 
 def display_menu():
     print("\n===================================")
@@ -14,12 +17,17 @@ def display_menu():
     print("6. Remove Book")
     print("7. Edit Book")
     print("8. Total Books")
-    print("9. Exit")
+    print("9. Add Member")
+    print("10. View Members")
+    print("11. Search Member")
+    print("12. Remove Member")
+    print("13. Exit")
 
 
 def main():
 
     library = Library()
+    member_manager = MemberManager()
 
     while True:
 
@@ -92,6 +100,66 @@ def main():
             library.total_books()
 
         elif choice == "9":
+
+            print("\n------ Add New Member ------")
+
+            try:
+                member_id = int(input("Enter Member ID: "))
+
+            except ValueError:
+                print("Member ID must be a number.")
+                continue
+
+
+            name = input("Enter Member Name: ").strip()
+
+
+            if name == "":
+                print("Member name cannot be empty.")
+                continue
+
+
+            member = Member(member_id, name)
+            member_manager.add_member(member)
+
+
+        elif choice == "10":
+
+            print("\n------ Member List ------")
+
+            member_manager.display_members()
+
+
+        elif choice == "11":
+
+            print("\n------ Search Member ------")
+
+            try:
+                member_id = int(input("Enter Member ID: "))
+
+            except ValueError:
+                print("Invalid Member ID.")
+                continue
+
+
+            member_manager.search_member(member_id)
+
+
+        elif choice == "12":
+
+            print("\n------ Remove Member ------")
+
+            try:
+                member_id = int(input("Enter Member ID: "))
+
+            except ValueError:
+                print("Invalid Member ID.")
+                continue
+
+
+            member_manager.remove_member(member_id)
+
+        elif choice == "13":
             print("\nThank you for using Library Management System.")
             break
 

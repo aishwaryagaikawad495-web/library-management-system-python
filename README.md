@@ -21,6 +21,8 @@ The project is being developed incrementally, with each new feature added throug
 - ✅ Prevent duplicate Book IDs
 - ⚠️ Basic input validation
 - 🖥️ Interactive menu-driven console application
+- 💾 Store book data using JSON
+- 👤 Member Management
 
 ---
 
@@ -35,8 +37,11 @@ library-management-system-python/
 │   ├── book.py
 │   ├── library.py
 │   └── member.py
-│
+│   └── member_manager.py
+│  
 ├── data/
+│   ├── books.json
+│   ├── membrs.json
 │
 ├── docs/
 │
@@ -104,7 +109,11 @@ python main.py
 6. Remove Book
 7. Edit Book
 8. Total Books
-9. Exit
+9. Add Member
+10. View Members
+11. Search Member
+12.Remove Member
+13. Exit
 ```
 
 ---
@@ -113,9 +122,7 @@ python main.py
 
 The following features are planned for future versions:
 
-- 💾 Store book data using JSON
 - 📂 Automatically load saved books
-- 👤 Member Management
 - 📚 Issue Books
 - 🔄 Return Books
 - 📅 Fine Calculation

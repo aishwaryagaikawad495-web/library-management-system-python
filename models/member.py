@@ -36,3 +36,15 @@ class Member:
         member.borrowed_books = data["borrowed_books"]
 
         return member
+
+    def borrow_book(self, book_id):
+
+        self.borrowed_books.append(book_id)
+
+
+
+    def return_book(self, book_id):
+
+        if book_id in self.borrowed_books:
+
+            self.borrowed_books.remove(book_id)

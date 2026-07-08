@@ -122,7 +122,18 @@ class MemberManager:
                     Member.from_dict(item)
                 )
 
-
         except:
 
             self.members=[]
+
+
+    def get_member(self, member_id):
+
+        for member in self.members:
+
+            if member.member_id == member_id:
+
+                return member
+
+
+        return None

@@ -23,6 +23,8 @@ The project is being developed incrementally, with each new feature added throug
 - 🖥️ Interactive menu-driven console application
 - 💾 Store book data using JSON
 - 👤 Member Management
+- 📚 Issue Books
+- 🔄 Return Books
 
 ---
 
@@ -113,7 +115,9 @@ python main.py
 10. View Members
 11. Search Member
 12.Remove Member
-13. Exit
+13. Issue Book
+14. Return Book 
+15. Exit
 ```
 
 ---
@@ -123,8 +127,6 @@ python main.py
 The following features are planned for future versions:
 
 - 📂 Automatically load saved books
-- 📚 Issue Books
-- 🔄 Return Books
 - 📅 Fine Calculation
 - 📈 Library Statistics Dashboard
 - 🔐 Login System (Admin & User)

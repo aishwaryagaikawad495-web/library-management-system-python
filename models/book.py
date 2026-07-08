@@ -5,6 +5,13 @@ class Book:
         self.author = author
         self.available = True
 
+    def issue_book(self):
+        self.available = False
+
+
+    def return_book(self):
+        self.available = True
+
     def display_book(self):
         print("-" * 40)
         print(f"Book ID : {self.book_id}")

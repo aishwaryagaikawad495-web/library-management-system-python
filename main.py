@@ -21,7 +21,9 @@ def display_menu():
     print("10. View Members")
     print("11. Search Member")
     print("12. Remove Member")
-    print("13. Exit")
+    print("13. Issue Book")
+    print("14. Return Book")
+    print("15. Exit")
 
 
 def main():
@@ -159,7 +161,65 @@ def main():
 
             member_manager.remove_member(member_id)
 
-        elif choice == "13":
+        elif choice=="13":
+
+            try:
+
+                book_id=int(input("Enter Book ID: "))
+                member_id=int(input("Enter Member ID: "))
+
+
+            except ValueError:
+
+                print("Invalid ID")
+                continue
+
+
+            member = member_manager.get_member(member_id)
+
+
+            if member:
+
+                library.issue_book(book_id, member)
+                member_manager.save_members()
+
+            else:
+
+                print("Member not found")
+
+
+        elif choice == "14":
+
+            print("\n------ Return Book ------")
+
+            try:
+
+                book_id = int(input("Enter Book ID: "))
+                member_id = int(input("Enter Member ID: "))
+
+            except ValueError:
+
+                print("Invalid ID")
+                continue
+
+
+            member = member_manager.get_member(member_id)
+
+
+            if member:
+
+                library.return_book(book_id, member)
+
+                # Save updated member data after removing borrowed book
+                member_manager.save_members()
+
+
+            else:
+
+                print("Member not found")
+
+
+        elif choice == "15":
             print("\nThank you for using Library Management System.")
             break
 

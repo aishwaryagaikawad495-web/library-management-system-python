@@ -173,3 +173,63 @@ class Library:
 
         except (FileNotFoundError, json.JSONDecodeError):
             self.books = []
+
+
+    def issue_book(self, book_id, member):
+
+        for book in self.books:
+
+            if book.book_id == book_id:
+
+
+                if book.available:
+
+                    book.issue_book()
+
+                    member.borrow_book(book_id)
+
+                    self.save_books()
+
+                    print("\nBook issued successfully!")
+
+                    return
+
+
+                else:
+
+                    print("\nBook already issued.")
+
+                    return
+
+
+        print("\nBook not found.")
+
+
+    def return_book(self, book_id,member):
+
+        for book in self.books:
+
+            if book.book_id == book_id:
+
+
+                if not book.available:
+
+                    book.return_book()
+
+                    member.return_book(book_id)
+
+                    self.save_books()
+
+                    print("\nBook returned successfully!")
+
+                    return
+
+
+                else:
+
+                    print("\nBook was not issued.")
+
+                    return
+
+
+        print("\nBook not found.")

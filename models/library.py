@@ -233,3 +233,65 @@ class Library:
 
 
         print("\nBook not found.")
+
+
+
+    def display_available_books(self):
+
+        if not self.books:
+
+            print("\nNo books available.")
+
+            return
+
+
+        found = False
+
+        print("\n================ Available Books ================")
+
+        self.display_table_header()
+
+
+        for book in self.books:
+
+            if book.available:
+
+                book.display_row()
+
+                found = True
+
+
+        if not found:
+
+            print("No available books.")
+
+
+    
+    def display_issued_books(self):
+
+        if not self.books:
+
+            print("\nNo books available.")
+
+            return
+
+
+        found = False
+
+        print("\n================ Issued Books ================")
+
+        self.display_table_header()
+
+
+        for book in self.books:
+
+            if not book.available:
+
+                book.display_row()
+
+                found = True
+
+
+        if not found:
+
+            print("No issued books.")

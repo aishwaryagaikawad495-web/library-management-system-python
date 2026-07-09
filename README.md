@@ -10,21 +10,23 @@ The project is being developed incrementally, with each new feature added throug
 
 ### ✅ Current Features 
 
-- 📖 Add a new book
-- 📋 View all books in a formatted table
-- 🔍 Search books by title
-- 🆔 Search books by Book ID
-- 👨‍💻 Search books by author
-- ✏️ Edit book details
-- 🗑️ Remove books
-- 📊 Display total number of books
-- ✅ Prevent duplicate Book IDs
-- ⚠️ Basic input validation
-- 🖥️ Interactive menu-driven console application
-- 💾 Store book data using JSON
-- 👤 Member Management
-- 📚 Issue Books
-- 🔄 Return Books
+-  Add a new book
+-  View all books in a formatted table
+-  Search books by title
+-  Search books by Book ID
+-  Search books by author
+-  Edit book details
+-  Remove books
+-  Display total number of books
+-  Prevent duplicate Book IDs
+-  Basic input validation
+-  Interactive menu-driven console application
+-  Store book data using JSON
+-  Member Management
+-  Issue Books
+-  Return Books
+- View all available books
+- View currently issued books
 
 ---
 
@@ -117,7 +119,10 @@ python main.py
 12.Remove Member
 13. Issue Book
 14. Return Book 
-15. Exit
+15. View Available Books
+16. View Issued Books
+17. Exit
+
 ```
 
 ---

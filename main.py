@@ -23,7 +23,9 @@ def display_menu():
     print("12. Remove Member")
     print("13. Issue Book")
     print("14. Return Book")
-    print("15. Exit")
+    print("15. View Available Books")
+    print("16. View Issued Books")
+    print("17. Exit")
 
 
 def main():
@@ -220,6 +222,16 @@ def main():
 
 
         elif choice == "15":
+
+            library.display_available_books()
+
+
+        elif choice == "16":
+
+            library.display_issued_books()
+
+
+        elif choice == "17":
             print("\nThank you for using Library Management System.")
             break
 

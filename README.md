@@ -27,6 +27,8 @@ The project is being developed incrementally, with each new feature added throug
 -  Return Books
 - View all available books
 - View currently issued books
+- Automatically load saved books
+- Fine Calculation
 
 ---
 
@@ -131,8 +133,6 @@ python main.py
 
 The following features are planned for future versions:
 
-- 📂 Automatically load saved books
-- 📅 Fine Calculation
 - 📈 Library Statistics Dashboard
 - 🔐 Login System (Admin & User)
 - 📖 Book Availability Tracking

@@ -1,5 +1,6 @@
 
 import json
+from utils.fine import calculate_fine
 from models.book import Book
 
 class Library:
@@ -205,7 +206,7 @@ class Library:
         print("\nBook not found.")
 
 
-    def return_book(self, book_id,member):
+    def return_book(self, book_id, member):
 
         for book in self.books:
 
@@ -216,7 +217,11 @@ class Library:
 
                     book.return_book()
 
-                    member.return_book(book_id)
+                    issue_date=member.return_book(book_id)
+
+                    fine = calculate_fine(issue_date)
+
+                    print(f"Fine Amount: ₹{fine}")
 
                     self.save_books()
 

@@ -1,6 +1,7 @@
 from models.book import Book
 from models.library import Library
 
+from models.auth_manager import AuthManager
 from models.member import Member
 from models.member_manager import MemberManager
 
@@ -28,7 +29,42 @@ def display_menu():
     print("17. Exit")
 
 
+def login_system():
+
+    auth = AuthManager()
+
+    print("\n==============================")
+    print("        User Login")
+    print("==============================")
+
+
+    username = input("Enter Username: ")
+    password = input("Enter Password: ")
+
+
+    user = auth.login(username, password)
+
+
+    if user:
+
+        print(f"\nWelcome {user.username}!")
+
+        return user
+
+
+    else:
+
+        print("\nInvalid username or password.")
+
+        return None
+
+
 def main():
+
+    user = None
+
+    while user is None:
+        user = login_system()
 
     library = Library()
     member_manager = MemberManager()

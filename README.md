@@ -45,10 +45,16 @@ library-management-system-python/
 │   ├── library.py
 │   └── member.py
 │   └── member_manager.py
+│   └── user.py
+│   └── auth_manager.py
 │  
 ├── data/
 │   ├── books.json
-│   ├── membrs.json
+│   ├── members.json
+│   ├── users.json
+│
+├── utils/
+│   ├── fine.py
 │
 ├── docs/
 │

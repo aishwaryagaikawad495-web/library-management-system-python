@@ -30,6 +30,7 @@ The project is being developed incrementally, with each new feature added throug
 - Automatically load saved books
 - Fine Calculation
 - Login System (Admin & User)
+- Registration System
 
 ---
 

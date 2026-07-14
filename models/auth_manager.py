@@ -1,7 +1,6 @@
 import json
 from models.user import User
 
-
 class AuthManager:
 
     def __init__(self):
@@ -35,6 +34,41 @@ class AuthManager:
 
             self.users = []
 
+    def save_users(self):
+
+        data=[]
+
+        for user in self.users:
+
+            data.append(user.to_dict())
+
+
+        with open("data/users.json","w") as file:
+
+            json.dump(data,file,indent=4)
+
+
+    
+    def register(self, username, password, role):
+
+        for user in self.users:
+
+            if user.username == username:
+
+                print("\nUsername already exists!")
+
+                return False
+
+        user = User( username,password,role)
+
+        self.users.append(user)
+
+
+        self.save_users()
+
+        print("\nRegistration successful!")
+
+        return True
 
 
     def login(self, username, password):

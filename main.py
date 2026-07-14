@@ -242,6 +242,30 @@ def library_system(user):
                 print("\nInvalid choice! Please try again.")
 
 
+
+def register_system():
+
+    auth = AuthManager()
+
+
+    print("\n========== Register ==========")
+
+
+    username = input("Enter Username: ")
+
+    password = input("Enter Password: ")
+
+
+    role = "user"
+
+
+    auth.register(
+        username,
+        password,
+        role
+    )
+
+
 def login_system():
 
     auth = AuthManager()
@@ -292,7 +316,7 @@ def authentication_menu():
 
         elif choice == "2":
 
-            print("Registration system coming soon...")
+            register_system()
 
         elif choice == "3":
 
@@ -309,7 +333,6 @@ def main():
     authentication_menu()
 
 
-        
-
+    
 if __name__ == "__main__":
     main()

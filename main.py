@@ -270,28 +270,36 @@ def login_system():
 
     auth = AuthManager()
 
-    print("\n==============================")
-    print("        User Login")
-    print("==============================")
+    attempts = 3
+
+    while attempts > 0:
+
+        print("\n==============================")
+        print("        User Login")
+        print("==============================")
 
 
-    username = input("Enter Username: ")
-    password = input("Enter Password: ")
+        username = input("Enter Username: ")
+        password = input("Enter Password: ")
 
-    user = auth.login(username, password)
+        user = auth.login(username, password)
 
-    if user:
+        if user:
 
-        print(f"\nWelcome {user.username}!")
+            print(f"\nWelcome {user.username}!")
 
-        return user
+            return user
 
 
-    else:
+        else:
+            attempts -= 1
 
-        print("\nInvalid username or password.")
+            print("\nInvalid username or password.")
 
-        return None
+            print(f"Attempts remaining: {attempts}")
+
+    print("\nToo many failed attempts.")
+    return None
 
 def authentication_menu():
 

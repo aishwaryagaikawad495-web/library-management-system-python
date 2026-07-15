@@ -1,5 +1,6 @@
 import json
 from models.user import User
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class AuthManager:
 
@@ -59,7 +60,13 @@ class AuthManager:
 
                 return False
 
-        user = User( username,password,role)
+        hashed_password = generate_password_hash(password)
+
+        user = User(
+            username,
+            hashed_password,
+            role
+        )
 
         self.users.append(user)
 
@@ -75,7 +82,7 @@ class AuthManager:
 
         for user in self.users:
 
-            if user.username == username and user.password == password:
+            if user.username == username and check_password_hash(user.password,password):
 
                 return user
 

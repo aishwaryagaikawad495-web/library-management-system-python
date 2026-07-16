@@ -141,8 +141,39 @@ python main.py
 
 The following features are planned for future versions:
 
-- 📈 Library Statistics Dashboard
-- 📖 Book Availability Tracking
+### 🗄️ Database Integration
+- Replace JSON file storage with SQLite/PostgreSQL database
+- Implement database queries for books, members, and transactions
+- Improve data management for large-scale records
+
+### 📚 Advanced Book Management
+- Track multiple copies of the same book
+- Maintain available and issued copy counts
+
+### ⏳ Borrowing & Return Improvements
+- Add book due date tracking
+- Automated fine calculation based on late returns
+- Maintain complete borrowing history
+
+### 📊 Analytics & Reports
+- Library statistics dashboard
+- Most borrowed books analysis
+
+### 🔐 Security Improvements
+- Password hashing for user accounts
+- Role-based access control
+- Admin and user permission management
+
+### 🌐 Web Application Upgrade
+- Convert console application into a Flask web application
+- Create frontend interface using HTML, CSS, and JavaScript
+- Build REST APIs for library operations
+- Deploy application online
+
+### 🤖 Smart Features
+- Book recommendation system
+- Search suggestions
+- AI-based library assistant
 
 ---
 

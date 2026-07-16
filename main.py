@@ -6,7 +6,6 @@ from models.member import Member
 from models.member_manager import MemberManager
 
 
-
 def display_menu():
     print("\n===================================")
     print("      Library Management System")
@@ -28,7 +27,6 @@ def display_menu():
     print("15. View Available Books")
     print("16. View Issued Books")
     print("17. Exit")
-
 
 def library_system(user):
 

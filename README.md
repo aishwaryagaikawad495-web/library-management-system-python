@@ -31,6 +31,7 @@ The project is being developed incrementally, with each new feature added throug
 - Fine Calculation
 - Login System (Admin & User)
 - Registration System
+- Admin and user permission management
 
 ---
 
@@ -162,7 +163,6 @@ The following features are planned for future versions:
 ### 🔐 Security Improvements
 - Password hashing for user accounts
 - Role-based access control
-- Admin and user permission management
 
 ### 🌐 Web Application Upgrade
 - Convert console application into a Flask web application

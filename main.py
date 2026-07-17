@@ -6,7 +6,7 @@ from models.member import Member
 from models.member_manager import MemberManager
 
 
-def display_menu():
+def admin_display_menu():
     print("\n===================================")
     print("      Library Management System")
     print("===================================")
@@ -26,16 +26,34 @@ def display_menu():
     print("14. Return Book")
     print("15. View Available Books")
     print("16. View Issued Books")
-    print("17. Exit")
+    print("17. Logout")
 
-def library_system(user):
+
+def user_display_menu():
+
+    print("\n===================================")
+    print("          User Panel")
+    print("===================================")
+
+    print("1. View Books")
+    print("2. Search Book by Title")
+    print("3. Search Book by ID")
+    print("4. Search by Author")
+    print("5. Issue Book")
+    print("6. Return Book")
+    print("7. View Available Books")
+    print("8. Logout")
+
+
+
+def admin_system(user):
 
         library = Library()
         member_manager = MemberManager()
 
         while True:
 
-            display_menu()
+            admin_display_menu()
 
             choice = input("\nEnter your choice: ")
 
@@ -240,7 +258,128 @@ def library_system(user):
                 print("\nInvalid choice! Please try again.")
 
 
+def user_system(user):
 
+    library = Library()
+    member_manager = MemberManager()
+
+
+    while True:
+
+        user_display_menu()
+
+        choice=input("Enter choice: ")
+
+
+        if choice=="1":
+
+            library.display_books()
+
+
+        elif choice=="2":
+
+            title=input("Enter title: ")
+
+            library.search_book(title)
+
+
+        elif choice=="3":
+
+            book_id=int(input("Enter Book ID:"))
+
+            library.search_book_by_id(book_id)
+
+        elif choice=="4":
+
+            author=input("Enter Author Name: ")
+
+            library.search_by_author(author)
+
+        elif choice=="5":
+
+            try:
+
+                book_id=int(input("Enter Book ID: "))
+                member_id=int(input("Enter Member ID: "))
+
+            except ValueError:
+
+                print("Invalid ID")
+                continue
+
+
+            member=member_manager.get_member(member_id)
+
+
+            if member:
+
+                library.issue_book(book_id,member)
+                member_manager.save_members()
+
+            else:
+
+                print("Member not found")
+
+
+
+        elif choice=="6":
+
+            try:
+
+                book_id=int(input("Enter Book ID: "))
+                member_id=int(input("Enter Member ID: "))
+
+            except ValueError:
+
+                print("Invalid ID")
+                continue
+
+
+            member=member_manager.get_member(member_id)
+
+
+            if member:
+
+                library.return_book(book_id,member)
+                member_manager.save_members()
+
+            else:
+
+                print("Member not found")
+
+
+
+        elif choice=="7":
+
+            library.display_available_books()
+
+
+        elif choice=="8":
+
+            print("Logging out...")
+            break
+
+# def register_system():
+
+#     auth = AuthManager()
+
+
+#     print("\n========== Register ==========")
+
+
+#     username = input("Enter Username: ")
+
+#     password = input("Enter Password: ")
+
+
+#     role = "user"
+
+
+#     auth.register(
+#         username,
+#         password,
+#         role
+#     )
 def register_system():
 
     auth = AuthManager()
@@ -254,7 +393,26 @@ def register_system():
     password = input("Enter Password: ")
 
 
-    role = "user"
+    print("\nSelect Role")
+    print("1. Admin")
+    print("2. User")
+
+
+    choice = input("Enter choice: ")
+
+
+    if choice == "1":
+
+        role = "admin"
+
+    elif choice == "2":
+
+        role = "user"
+
+    else:
+
+        print("Invalid role")
+        return
 
 
     auth.register(
@@ -262,7 +420,6 @@ def register_system():
         password,
         role
     )
-
 
 def login_system():
 
@@ -318,7 +475,14 @@ def authentication_menu():
             user = login_system()
 
             if user:
-                library_system(user)
+
+                if user.role=="admin":
+
+                    admin_system(user)
+
+                else:
+
+                    user_system(user)
 
         elif choice == "2":
 

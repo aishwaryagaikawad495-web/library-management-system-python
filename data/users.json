@@ -1,7 +1,7 @@
 [
     {
-        "username": "Aishwarya",
-        "password": "scrypt:32768:8:1$cBCQXpucKR9mn2vX$b2ce00249f7949a907907bb9839592c825f4150ca6e89e159e1777ff85efbe275220e0f6a8ce1788719e0cc5e0b78fdae622c3af72bcf1d7b20cc6c6f21361e2",
+        "username": "Priti",
+        "password": "scrypt:32768:8:1$r7QMa3BbfEHlAwbY$5921b3d139930beeb3964ad28c2bcc855b0b07194b338dd0d213c3b9d8e63c59bdf77a8b2702fddc2a633d41fc92549643fe9ad50af5668869e8d66032c16d86",
         "role": "user"
     }
 ]

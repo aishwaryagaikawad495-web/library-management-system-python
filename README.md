@@ -31,7 +31,7 @@ The project is being developed incrementally, with each new feature added throug
 - Fine Calculation
 - Login System (Admin & User)
 - Registration System
-- Admin and user permission management
+- Role-based access control
 
 ---
 
@@ -111,9 +111,11 @@ python main.py
 
 ## 📌 Menu
 
+### 👨‍💼 Admin Panel
+
 ```text
 ===================================
-      Library Management System
+          Admin Panel
 ===================================
 
 1. Add Book
@@ -127,14 +129,26 @@ python main.py
 9. Add Member
 10. View Members
 11. Search Member
-12.Remove Member
+12. Remove Member
 13. Issue Book
-14. Return Book 
+14. Return Book
 15. View Available Books
 16. View Issued Books
-17. Exit
+17. Logout
 
-```
+
+===================================
+           User Panel
+===================================
+
+1. View Books
+2. Search Book by Title
+3. Search Book by ID
+4. Search by Author
+5. Issue Book
+6. Return Book
+7. View Available Books
+8. Logout
 
 ---
 
@@ -162,7 +176,6 @@ The following features are planned for future versions:
 
 ### 🔐 Security Improvements
 - Password hashing for user accounts
-- Role-based access control
 
 ### 🌐 Web Application Upgrade
 - Convert console application into a Flask web application
@@ -192,7 +205,7 @@ This project helps in learning:
 
 ## 👩‍💻 Author
 
-**Aishwarya Gaikwad**
+**Aishwarya Gaikawad**
 
 - 🎓 Second-Year Engineering Student
 - 💻 Python | C++ | Data Structures & Algorithms

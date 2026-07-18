@@ -359,27 +359,7 @@ def user_system(user):
             print("Logging out...")
             break
 
-# def register_system():
 
-#     auth = AuthManager()
-
-
-#     print("\n========== Register ==========")
-
-
-#     username = input("Enter Username: ")
-
-#     password = input("Enter Password: ")
-
-
-#     role = "user"
-
-
-#     auth.register(
-#         username,
-#         password,
-#         role
-#     )
 def register_system():
 
     auth = AuthManager()
@@ -476,13 +456,14 @@ def authentication_menu():
 
             if user:
 
-                if user.role=="admin":
-
+                if user.role == "admin":
                     admin_system(user)
 
-                else:
-
+                elif user.role == "user":
                     user_system(user)
+
+                else:
+                    print("Invalid role")
 
         elif choice == "2":
 

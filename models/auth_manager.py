@@ -25,7 +25,8 @@ class AuthManager:
                 user = User(
                     item["username"],
                     item["password"],
-                    item["role"]
+                    item["role"],
+                    item.get("member_id")
                 )
 
                 self.users.append(user)
@@ -50,7 +51,7 @@ class AuthManager:
 
 
     
-    def register(self, username, password, role):
+    def register(self, username, password, role, member_id=None):
 
         for user in self.users:
 
@@ -65,7 +66,8 @@ class AuthManager:
         user = User(
             username,
             hashed_password,
-            role
+            role,
+            member_id
         )
 
         self.users.append(user)

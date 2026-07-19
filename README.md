@@ -174,9 +174,6 @@ The following features are planned for future versions:
 - Library statistics dashboard
 - Most borrowed books analysis
 
-### 🔐 Security Improvements
-- Password hashing for user accounts
-
 ### 🌐 Web Application Upgrade
 - Convert console application into a Flask web application
 - Create frontend interface using HTML, CSS, and JavaScript

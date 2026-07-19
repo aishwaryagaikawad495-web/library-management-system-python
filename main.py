@@ -360,46 +360,110 @@ def user_system(user):
             break
 
 
+# def register_system():
+
+#     auth = AuthManager()
+
+
+#     print("\n========== Register ==========")
+
+
+#     username = input("Enter Username: ")
+
+#     password = input("Enter Password: ")
+
+
+#     print("\nSelect Role")
+#     print("1. Admin")
+#     print("2. User")
+
+
+#     choice = input("Enter choice: ")
+
+
+#     if choice == "1":
+
+#         role = "admin"
+
+#     elif choice == "2":
+
+#         role = "user"
+
+#     else:
+
+#         print("Invalid role")
+#         return
+
+
+#     auth.register(
+#         username,
+#         password,
+#         role
+#     )
 def register_system():
 
     auth = AuthManager()
-
-
+    member_manager = MemberManager()
     print("\n========== Register ==========")
-
 
     username = input("Enter Username: ")
 
     password = input("Enter Password: ")
-
-
     print("\nSelect Role")
     print("1. Admin")
     print("2. User")
-
-
     choice = input("Enter choice: ")
-
 
     if choice == "1":
 
         role = "admin"
 
+        # Admin does not need member profile
+        auth.register(
+            username,
+            password,
+            role,
+            None
+        )
+
     elif choice == "2":
 
         role = "user"
 
+        print("\n------ Member Details ------")
+        try:
+
+            member_id = int(input("Enter Member ID: "))
+
+        except ValueError:
+
+            print("Invalid Member ID")
+            return
+        name = input("Enter Member Name: ").strip()
+        if name == "":
+
+            print("Member name cannot be empty")
+            return
+
+        # Create Member Profile
+
+        member = Member(
+            member_id,
+            name
+        )
+
+        member_manager.add_member(member)
+
+        # Create User Account with member_id
+        auth.register(
+            username,
+            password,
+            role,
+            member_id
+        )
     else:
-
         print("Invalid role")
-        return
 
-
-    auth.register(
-        username,
-        password,
-        role
-    )
 
 def login_system():
 

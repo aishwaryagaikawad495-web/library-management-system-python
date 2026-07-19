@@ -3,7 +3,7 @@
         "book_id": 1,
         "title": "Design patterns",
         "author": "Gammaa",
-        "available": true
+        "available": false
     },
     {
         "book_id": 3,

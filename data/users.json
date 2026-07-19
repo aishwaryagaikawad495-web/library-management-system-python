@@ -1,7 +1,14 @@
 [
     {
         "username": "Priti",
-        "password": "scrypt:32768:8:1$r7QMa3BbfEHlAwbY$5921b3d139930beeb3964ad28c2bcc855b0b07194b338dd0d213c3b9d8e63c59bdf77a8b2702fddc2a633d41fc92549643fe9ad50af5668869e8d66032c16d86",
-        "role": "user"
+        "password": "scrypt:32768:8:1$C77gopJjE4LsSg01$cb498b45447e756e88ed654f80a73dd7ff0dd82d9f89331177718820467da2d095620423b457c39a8aac287ca090dc4c2f9a81b86f4e2ddba8439746942fa2c0",
+        "role": "user",
+        "member_id": 101
+    },
+    {
+        "username": "admin",
+        "password": "scrypt:32768:8:1$G69nnLKqIE9K2Tsh$8673429f0f5cab1fee1727c537a866cdfca3269559d98586fdc357d91cea69049b783195d354f2c68810f8897d7ff02c45e339d05f62510b4c52ac439a511a04",
+        "role": "admin",
+        "member_id": null
     }
 ]

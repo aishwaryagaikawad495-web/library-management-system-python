@@ -206,39 +206,71 @@ class Library:
         print("\nBook not found.")
 
 
+    # def return_book(self, book_id, member):
+
+    #     for book in self.books:
+
+    #         if book.book_id == book_id:
+
+
+    #             if not book.available:
+
+    #                 book.return_book()
+
+    #                 issue_date=member.return_book(book_id)
+
+    #                 fine = calculate_fine(issue_date)
+
+    #                 print(f"Fine Amount: ₹{fine}")
+
+    #                 self.save_books()
+
+    #                 print("\nBook returned successfully!")
+
+    #                 return
+
+
+    #             else:
+
+    #                 print("\nBook was not issued.")
+
+    #                 return
+
+
+    #     print("\nBook not found.")
     def return_book(self, book_id, member):
 
         for book in self.books:
 
             if book.book_id == book_id:
 
-
-                if not book.available:
-
-                    book.return_book()
-
-                    issue_date=member.return_book(book_id)
-
-                    fine = calculate_fine(issue_date)
-
-                    print(f"Fine Amount: ₹{fine}")
-
-                    self.save_books()
-
-                    print("\nBook returned successfully!")
-
-                    return
-
-
-                else:
+                if book.available:
 
                     print("\nBook was not issued.")
-
                     return
 
+                # Check member borrowed this book
+
+                issue_date = member.return_book(book_id)
+
+                if issue_date is None:
+
+                    print("\nThis member did not issue this book.")
+                    return
+
+                book.return_book()
+
+                fine = calculate_fine(issue_date)
+
+                print(f"Fine Amount: ₹{fine}")
+
+                self.save_books()
+
+                print("\nBook returned successfully!")
+
+                return
 
         print("\nBook not found.")
-
 
 
     def display_available_books(self):

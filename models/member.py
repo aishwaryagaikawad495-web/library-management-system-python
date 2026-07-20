@@ -42,11 +42,13 @@ class Member:
 
         today = str(date.today())
 
-        self.borrowed_books[book_id] = today
+        self.borrowed_books[str(book_id)] = today
 
 
 
     def return_book(self, book_id):
+
+        book_id = str(book_id)
 
         if book_id in self.borrowed_books:
 
